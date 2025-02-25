@@ -1,0 +1,3 @@
+## 查看 Ubuntu 版本
+ lsb_release -a
+
