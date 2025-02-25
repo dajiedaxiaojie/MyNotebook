@@ -1,0 +1,8 @@
+版本查詢：
+1.CUDA
+nvcc -V
+2.cudnn
+cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+3.gcc
+
+
