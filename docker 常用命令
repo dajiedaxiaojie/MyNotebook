@@ -8,3 +8,35 @@ docker pull nvidia/cuda:12.2.2-cudnn8-runtime-ubuntu20.04
 docker run --gpus all -it nvidia/cuda:12.2.2-cudnn8-runtime-ubuntu20.04 /bin/bash
 docker commit 230a0b3ebdd5 athenaUbuntuPy
 docker images
+
+
+## docker --version
+Docker version 19.03.14, build 5eb3275d40
+## 拉取镜像 
+  docker pull ubuntu
+## 运行容器
+  docker run -it ubuntu /bin/bash
+## 管理容器
+#### 查看正在运行的容器
+  docker ps
+#### 停止容器
+  docker stop <container_id>  Ctrl+D  exit
+#### 删除容器
+  docker rm <container_id>
+
+----------------------
+環境搭建
+  鏡像下載連結：
+  https://catalog.ngc.nvidia.com/orgs/nvidia/containers/cuda/tags
+  https://hub.docker.com/r/nvidia/cuda/tags
+
+  docker pull nvcr.io/nvidia/cuda:11.6.1-runtime-ubuntu20.04
+    docker pull nvidia/cuda:12.2.2-cudnn8-runtime-ubuntu20.04
+  docker run --gpus all -it nvcr.io/nvidia/cuda:11.6.1-runtime-ubuntu20.04 /bin/bash
+    --gpus all：啟用容器中的所有可用 GPU。
+    -it：以互動模式運行容器。
+    /bin/bash：在容器內啟動 bash shell。
+
+    docker run -p 8080:80 nginx。   #啟動Nginx容器，並將容器內部的80端口映射到主機上的8080端口
+          
+    
