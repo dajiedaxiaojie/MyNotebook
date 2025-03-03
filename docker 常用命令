@@ -6,8 +6,54 @@ docker ps
 docker images
 docker pull nvidia/cuda:12.2.2-cudnn8-runtime-ubuntu20.04
 docker run --gpus all -it nvidia/cuda:12.2.2-cudnn8-runtime-ubuntu20.04 /bin/bash
-docker commit 230a0b3ebdd5 athenaUbuntuPy
+docker run --gpus all -it 54478aaec63b /bin/bash
+
+docker commit d9e9399d4726 athenaubuntupy
 docker images
+docker ps
+docker ps -a
+docker start
+docker exec -it -u 0 d9e9399d4726  /bin/bash
+conda activate open-mmlab
+docker run --gpus all -it -v /home/athenazhang/code/human3D/mmhuman3d:/home/code/mmhuman3d athenaubuntupy /bin/bash
+conda install -c conda-forge mmcv-full
+pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu122
+cd /home/code/mmhuman3d/
+cd /home/softwareInstall/
+
+import torch
+print(torch.__version__)
+print(torch.version.cuda)
+print(torch.backends.cudnn.version())
+
+問題：
+ImportError: libtorch_cuda_cu.so: cannot open shared object file: No such file or directory
+解決
+https://anaconda.org/pytorch3d/pytorch3d/files
+conda install https://anaconda.org/pytorch3d/pytorch3d/0.7.8/download/linux-64/pytorch3d-0.7.8-py38_cu121_pyt241.tar.bz2
+
+
+python demo/estimate_smpl.py     configs/hmr/resnet50_hmr_pw3d.py     data/checkpoints/resnet50_hmr_pw3d.pth     --single_person_demo     --det_config demo/mmdetection_cfg/faster_rcnn_r50_fpn_coco.py     --det_checkpoint https://download.openmmlab.com/mmdetection/v2.0/faster_rcnn/faster_rcnn_r50_fpn_1x_coco/faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth     --input_path  demo/resources/single_person_demo.mp4     --show_path vis_results/single_person_demo.mp4     --output demo_result     --smooth_type savgol     --speed_up_type deciwatch     --draw_bbox
+
+# 单人离线 : 可执行
+python demo/estimate_smpl.py \
+    configs/hmr/resnet50_hmr_pw3d.py \
+    data/checkpoints/resnet50_hmr_pw3d.pth \
+    --single_person_demo \
+    --det_config demo/mmdetection_cfg/faster_rcnn_r50_fpn_coco.py \
+    --det_checkpoint https://download.openmmlab.com/mmdetection/v2.0/faster_rcnn/faster_rcnn_r50_fpn_1x_coco/faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth \
+    --input_path  demo/resources/single_person_demo.mp4 \
+    --show_path vis_results/single_person_demo.mp4 \
+    --output demo_result \
+    --smooth_type savgol \
+    --speed_up_type deciwatch \
+    --draw_bbox
+
+/home/code/mmhuman3d/data
+
+
+
+
 
 
 ## docker --version
