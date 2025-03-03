@@ -4,18 +4,20 @@ docker inspect ubuntu
 docker search ubuntu
 docker ps
 docker images
+docker search ubuntu
 docker pull nvidia/cuda:12.2.2-cudnn8-runtime-ubuntu20.04
 docker run --gpus all -it nvidia/cuda:12.2.2-cudnn8-runtime-ubuntu20.04 /bin/bash
 docker run --gpus all -it 54478aaec63b /bin/bash
+docker run --gpus all -it -v /home/athenazhang/code/human3D/mmhuman3d:/home/code/mmhuman3d athenaubuntupy /bin/bash
 
 docker commit d9e9399d4726 athenaubuntupy
 docker images
 docker ps
 docker ps -a
-docker start
+docker container ls --all ｜grep athena
+docker start d9e9399d4726
 docker exec -it -u 0 d9e9399d4726  /bin/bash
 conda activate open-mmlab
-docker run --gpus all -it -v /home/athenazhang/code/human3D/mmhuman3d:/home/code/mmhuman3d athenaubuntupy /bin/bash
 conda install -c conda-forge mmcv-full
 pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu122
 cd /home/code/mmhuman3d/
@@ -88,14 +90,43 @@ Docker version 19.03.14, build 5eb3275d40
 
 ----------------------
 2.27日
+
 ubuntu  runtime版因無法正確找到nvcc(/usr/local/cuda/bin),故確定不可行，後面安裝devel版，可正常找到nvcc,但尚未安裝程序運行的其它環境，故可行性待定。
 docker pull nvcr.io/nvidia/cuda:11.6.1-cudnn8-devel-ubuntu20.04
 docker images
 docker run --gpus all -it 54478aaec63b /bin/bash
+mkdir software
+mkdir softwareInstall
+mkdir code
 cd /usr/local/cuda/bin
 nvcc -V
 ls
 nvcc -V
+conda activate open-mmlab
+conda install ffmpeg
+cd /home/athenazhang/code/human3D/mmhuman3d/data
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu124/torch2.4.1/index.html
+conda install -y pytorch3d -c pytorch3d
+git clone https://github.com/facebookresearch/pytorch3d.git
+cd pytorch3d
+pip install .
+git clone https://github.com/open-mmlab/mmcv.git -b v1.5.3
+cd mmcv/
+MMCV_WITH_OPS=1
+pip install -e .
+git clone https://github.com/open-mmlab/mmdetection.git -b v2.25.1
+cd mmdetection
+pip install -r requirements/build.txt
+pip install -v -e .
+git clone https://github.com/open-mmlab/mmpose.git -b v0.28.1
+cd mmpose
+pip install -r requirements.txt
+pip install -v -e .
+git clone https://github.com/open-mmlab/mmtracking.git -b v0.13.0
+cd mmtracking
+pip install -r requirements/build.txt
+pip install -v -e . 
 
           
     
