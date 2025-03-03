@@ -5,6 +5,8 @@ docker search ubuntu
 docker ps
 docker images
 docker search ubuntu
+通過如下的連結，查找ubuntu cuda
+https://catalog.ngc.nvidia.com/orgs/nvidia/containers/cuda/tags
 docker pull nvidia/cuda:12.2.2-cudnn8-runtime-ubuntu20.04
 docker run --gpus all -it nvidia/cuda:12.2.2-cudnn8-runtime-ubuntu20.04 /bin/bash
 docker run --gpus all -it 54478aaec63b /bin/bash
@@ -90,8 +92,17 @@ Docker version 19.03.14, build 5eb3275d40
 
 ----------------------
 2.27日
+docker 常用命令
+https://blog.csdn.net/pearl8899/article/details/113757377
 
 ubuntu  runtime版因無法正確找到nvcc(/usr/local/cuda/bin),故確定不可行，後面安裝devel版，可正常找到nvcc,但尚未安裝程序運行的其它環境，故可行性待定。
+安裝參考如下連結：
+https://blog.csdn.net/weixin_44848751/article/details/132187243
+https://d246810g2000.medium.com/mmdetection-%E5%85%A5%E9%96%80%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8-db4424c07587
+https://mmdetection.readthedocs.io/en/latest/get_started.html
+https://github.com/open-mmlab/mmhuman3d/blob/main/docs/install.md
+https://github.com/open-mmlab/mmhuman3d/blob/main/docs/getting_started.md
+
 docker pull nvcr.io/nvidia/cuda:11.6.1-cudnn8-devel-ubuntu20.04
 docker images
 docker run --gpus all -it 54478aaec63b /bin/bash
