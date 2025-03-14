@@ -1,6 +1,7 @@
 apt update
 apt-get install -y wget
 apt-get install -y vim
+apt-get install -y git
 wget https://repo.anaconda.com/archive/Anaconda3-2023.09-0-Linux-x86_64.sh
 chmod +x Anaconda3-2023.09-0-Linux-x86_64.sh
 sh Anaconda3-2023.09-0-Linux-x86_64.sh
@@ -12,4 +13,24 @@ sh Anaconda3-2023.09-0-Linux-x86_64.sh
   下面的沒有用到，就可以正常執行
   conda info -e
   source /root/anaconda3/bin/activate
+-------------------------------------------------------
+------
+安裝F5-TTS
+------
+conda create -n f5-tts python=3.10
+conda activate f5-tts
+安装PyTorch和Torchaudio，CUDA版本根据显卡的類型选择，參見 https://github.com/dajiedaxiaojie/MyNotebook/blob/master/pytorch_install.md：
+pip install torch==2.4.0+cu118 torchaudio==2.4.0+cu118 --extra-index-url https：//download.pytorch.org/whl/cu118
+F5-TTS可以选择以下三种安装方式：
+方法1.作为pip包 (仅用于推理)：
+pip install git+https://github.com/SWivid/F5-TTS.git
+方法2.本地可编辑模式 (用于训练和微调)：
+git clone https://github.com/SWivid/F5-TTS.git
+cd F5-TTS
+pip install -e .
+方法3.使用Docker：
+docker build -t f5tts:v1 .
+# Or pull from GitHub Container Registry
+docker pull ghcr.io/swivid/f5-tts:mai
+
 
