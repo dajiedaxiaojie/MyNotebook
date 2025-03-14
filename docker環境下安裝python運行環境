@@ -1,11 +1,15 @@
 apt update
 apt-get install -y wget
+apt-get install -y vim
 wget https://repo.anaconda.com/archive/Anaconda3-2023.09-0-Linux-x86_64.sh
 chmod +x Anaconda3-2023.09-0-Linux-x86_64.sh
 sh Anaconda3-2023.09-0-Linux-x86_64.sh
 添加環境變亮並激活
   vi ~/.bashrc   
   添加
-  export PATH="/root/anaconda3/bin":$PATH
-  source /root/anaconda3/bin/activate
+    export PATH="/root/anaconda3/bin":$PATH
   source ~/.bashrc 
+  下面的沒有用到，就可以正常執行
+  conda info -e
+  source /root/anaconda3/bin/activate
+
