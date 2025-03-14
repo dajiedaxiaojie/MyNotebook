@@ -7,7 +7,13 @@ docker images
 docker search ubuntu
 通過如下的連結，查找ubuntu cuda
 https://catalog.ngc.nvidia.com/orgs/nvidia/containers/cuda/tags
+
+export doc_ubuntu=nvcr.io/nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04
+docker pull doc_ubuntu
+docker run --gpus all -it doc_ubuntu /bin/bash
+
 docker pull nvidia/cuda:12.2.2-cudnn8-runtime-ubuntu20.04
+docker pull nvcr.io/nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04
 docker run --gpus all -it nvidia/cuda:12.2.2-cudnn8-runtime-ubuntu20.04 /bin/bash
 docker run --gpus all -it 54478aaec63b /bin/bash
 docker run --gpus all -it -v /home/athenazhang/code/human3D/mmhuman3d:/home/code/mmhuman3d athenaubuntupy /bin/bash
