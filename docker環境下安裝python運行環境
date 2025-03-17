@@ -15,7 +15,8 @@ sh Anaconda3-2023.09-0-Linux-x86_64.sh
   source /root/anaconda3/bin/activate
 -------------------------------------------------------
 ------
-安裝F5-TTS
+安裝F5-TTS   只能在GPU環境下運行
+參考：https://www.communeify.com/tw/blog/f5-tts-breakthrough-non-autoregressive-text-to-speech-system-combining-flow-matching-and-diffusion-transformer#%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81
 ------
 conda create -n f5-tts python=3.10
 conda activate f5-tts
