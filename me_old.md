@@ -1,5 +1,5 @@
-|stock|code|time_in|price_in|rate_in|time_out|price_out|rate_out|
-| --- | --- | --- | --- | --- | --- | --- | --- |
+|stock|code|time_in|price_in|rate_in|time_out|price_out|rate_out|person|
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |南华仪器|300417|2/27|12.77|4.23%|||||
 |南华仪器|300417|2/27|12.78|4.24%|||||
 |南华仪器|300417||||03/17|12.80|8.48%|王军|
