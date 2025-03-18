@@ -33,5 +33,10 @@ pip install -e .
 docker build -t f5tts:v1 .
 # Or pull from GitHub Container Registry
 docker pull ghcr.io/swivid/f5-tts:mai
+------
+spark-tts cpu上可以運行，音質也很好，就是速度慢，我自己有寫了一個接口，如果有GPU的話，可以考慮部署GPU服務器
+https://www.communeify.com/tw/blog/spark-tts-ai-voice-cloning-personalization
+https://github.com/SparkAudio/Spark-TTS
+------
 
 
