@@ -1,5 +1,6 @@
 podman machine list
 podman machine stop --log-level debug
+https://github.com/containers/podman/issues/25121#issuecomment-2653583685
 podman machine reset
 podman ps -a 
 podman compose version
