@@ -16,8 +16,8 @@
 | GluonCV          | MXNet 用戶，跨平台部署 | 模型豐富，支持多任務       | 一般                 |
 
 
-# ultralytics
----
+# ultralytics install
+```
 conda create --name ultralytics-env python=3.11 -y
 conda install -c pytorch -c nvidia -c conda-forge pytorch torchvision pytorch-cuda=11.8 ultralytics
----
+```
