@@ -6,6 +6,8 @@ pip install 'langchain[all]'
 
 pip install langchain-openai
 
+pip install openai
+
 pip install langchain-cli 
 
 pip install "langserve[all]"
