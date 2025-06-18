@@ -14,6 +14,8 @@ pip install langchain-cli
 
 pip install "langserve[all]"
 
+pip install --upgrade --quiet langchain-core langchain-community langchain-openai
+
 ---
 
 ![image](https://github.com/user-attachments/assets/b23829f8-7035-481f-a2a2-f4239aced70c)
