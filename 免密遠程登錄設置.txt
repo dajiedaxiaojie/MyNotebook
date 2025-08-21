@@ -1,0 +1,18 @@
+[Mac]
+ssh-keygen -t ed25519 -C "athenazhang@10.100.9.77"
+    /Users/athenazhang/.ssh/id_ed25519_A100
+ssh-copy-id -i ~/.ssh/id_ed25519_A100.pub athenazhang@10.100.9.77
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519_A100
+ssh-add -l
+nano ~/.ssh/config
+    Host athenazhang@10.100.9.77
+        HostName 10.100.9.77
+        User athenazhang
+        IdentityFile ~/.ssh/id_ed25519_A100
+        AddKeysToAgent yes
+        UseKeychain yes
+ssh athenazhang@10.100.9.77
+注：
+    nano編輯後退出： Ctrl+O → Enter → Ctrl+X 
+
+/home/athenazhang/code/paul/jht-tts-orpheus-chinese/免密遠程登錄設置.txt
